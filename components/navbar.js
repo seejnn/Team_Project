@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //# DB 접근
       const isLogin = JSON.parse(sessionStorage.getItem("isLoginUser"));
-      console.log(isLogin);
+      // console.log(isLogin);
 
       if (isLogin && isLogin.isLogin) {
         isLoggedIn = true;
