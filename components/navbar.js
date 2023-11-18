@@ -141,6 +141,27 @@ document.addEventListener("DOMContentLoaded", () => {
       padding: 12px;
     }
 
+    .loginInfo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+
+    .loginInfo p {
+      color: var(--color-gray-400)
+    }
+
+    .sidebar-user {
+      padding: 24px;
+      color: var(--color-gray-400);
+      line-height: 1.4;
+    }
+
+    .sidebar custom-button {
+      padding: 8px 16px;
+    }
+
 
 
     @media (max-width: 800px) {
@@ -148,10 +169,13 @@ document.addEventListener("DOMContentLoaded", () => {
         display:flex;
       }
       .btn-group {
-        display: none;
+        display: none !important;
       }
       .top-menu {
         display: none;
+      }
+      .loginInfo {
+        display: none !important; 
       }
       
     }
@@ -164,7 +188,13 @@ document.addEventListener("DOMContentLoaded", () => {
       .menu img {
         display: none;
       }
+      .btn-group {
+        display: flex;
+      }
       .top-menu {
+        display: flex;
+      }
+      .loginInfo {
         display: flex;
       }
     }
@@ -180,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const logo = document.createElement("div");
       const menu = document.createElement("div");
       const btnGroup = document.createElement("div");
+      const loginInfo = document.createElement("div")
       // const loginButton = document.createElement("custom-button");
       // const signupButton = document.createElement("custom-button");
       const menuIcon = document.createElement("img");
@@ -194,11 +225,30 @@ document.addEventListener("DOMContentLoaded", () => {
       sidebar.classList.add("sidebar");
       overlay.classList.add("overlay");
       topMenu.classList.add("top-menu");
+      loginInfo.classList.add("loginInfo");
 
       btnGroup.innerHTML = `
       <custom-button class='loginButton' data-type='primary' data-label='로그인'></custom-button>
       <custom-button class='signupButton' data-type='primary' data-label='회원가입'></custom-button>
     `;
+
+    let isLoggedIn = false;
+
+
+      if (isLoggedIn == true) {
+        loginInfo.innerHTML = `
+      <p>${JSON.parse(sessionStorage.getItem("isLoginUser")).userName}님</p>
+      <custom-button class='logoutButton' data-type='primary' data-label='로그아웃' onclick="logout()"></custom-button>
+      `
+      }
+      
+
+      // const login = sessionStorage.getItem("isLoginUser");
+      // console.log(login);
+      // const username = login.userName
+      // console.log(username);
+
+
 
       // 로고 클릭시 홈페이지 이동
       logo.innerHTML = `
@@ -211,53 +261,46 @@ document.addEventListener("DOMContentLoaded", () => {
       menuIcon.alt = "Menu Icon";
 
       // btnGroup.append(loginButton, signupButton);
-      menu.append(btnGroup, menuIcon);
+      menu.append(btnGroup, loginInfo, menuIcon);
       header.append(logo, topMenu, menu);
       this.shadowRoot.append(style, header, sidebar, overlay);
 
 
+     
+
       //# DB 접근
-      const isLoggedIn = false;
+      const isLogin = JSON.parse(sessionStorage.getItem("isLoginUser"));
+      console.log(isLogin);
 
-      function getLoginInfo() {
-
-        const request = indexedDB.open("myPetDB", 1);
-        console.log(request);
-
-        // 데이터베이스 열기 또는 생성 성공 시 실행되는 이벤트 핸들러
-        request.onupgradeneeded = function(event) {
-        const db = event.target.result;
-
-        const transaction = db.transaction(["user"], "readonly");
-
-        const objectStore = transaction.objectStore("user");
-
-        const request1 = objectStore.getAll();
-
-
-      request.onerror = function (event) {
-        // Handle errors!
-      };
-      request.onsuccess = function (event) {
-        console.log(request1);
+      if (isLogin && isLogin.isLogin) {
         isLoggedIn = true;
-      };
-    }
-
       }
 
-      getLoginInfo();
-      
+
+      function logout() {
+        console.log("사용자 로그아웃");
+        const isLoginUser = sessionStorage.getItem('isLoginUser');
+        const data = JSON.parse(isLoginUser);
+        data.isLogin = false;
+        console.log(data.isLogin);
+        sessionStorage.setItem('isLoginUser', JSON.stringify(data));
+        // 세션 타임아웃 설정 초기화
+        // clearTimeout(timeoutId);
+        // alert(`동작이 없어 자동으로 로그아웃 되었습니다.`);
+        window.location.href = 'index.html';
+    }
 
 
 
-
-      // const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    
 
       if (isLoggedIn) {
         btnGroup.style.display = "none";
+        loginInfo.style.display = "flex";
+      
       } else {
-        // btnGroup.style.display = "flex";
+        btnGroup.style.display = "flex";
+        loginInfo.style.display = "none";
       }
 
       menuIcon.addEventListener("click", () => {
@@ -291,11 +334,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const sidebarLogo = document.createElement("div");
       sidebarLogo.classList.add("sidebar-logo");
       sidebarLogo.innerHTML = `
-      <a href="#">
+      <a href="/index.html">
         <img src="/assets/mypet.svg" alt="logo">
       </a>
     `;
       sidebar.appendChild(sidebarLogo);
+
+
+      const sidebarUser = document.createElement("div");
+      sidebarUser.classList.add("sidebar-user")
+      if (isLoggedIn == true) {
+
+        sidebarUser.innerHTML = `
+        <p>${JSON.parse(sessionStorage.getItem("isLoginUser")).userName}님<br>환영합니다!</p>
+        `
+      }
+      sidebar.appendChild(sidebarUser)
+
 
       menuItems.forEach((item) => {
         const menuItem = document.createElement("a");
@@ -321,6 +376,28 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
       sidebar.appendChild(sidebarBtn);
 
+      
+
+      const sidebarLogout = document.createElement("div");
+      sidebarLogout.classList.add("sidebar-logout");
+      sidebarLogout.innerHTML = `
+      <custom-button id="sidebarLogout" data-type="secondary" data-label="로그아웃">
+      `
+
+      sidebar.appendChild(sidebarLogout);
+
+
+      if (isLoggedIn) {
+        sidebarBtn.style.display = "none";
+        sideLoginButton.style.display = "none"
+        sideSignupButton.style.display = "none"
+        sidebarLogout.style.display = "block"
+      
+      } else {
+        btnGroup.style.display = "flex";
+        sidebarLogout.style.display = "none"
+      }
+
       const loginButton = this.shadowRoot.querySelector(".loginButton");
       loginButton.addEventListener("click", () => {
         window.location.href = "/login.html";
@@ -341,6 +418,19 @@ document.addEventListener("DOMContentLoaded", () => {
       sideSignupButton.addEventListener("click", () => {
         window.location.href = "/signIn.html";
       });
+
+      if (isLoggedIn) {
+
+        const logoutButton = this.shadowRoot.querySelector(".logoutButton");
+        logoutButton.addEventListener("click", () => {
+          logout();
+        
+          window.location.href = "/index.html";
+          window.location.reload();h
+          sessionStorage.removeItem("isLoginUser");
+        
+      })
+      }
     }
   }
 
