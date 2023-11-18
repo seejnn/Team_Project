@@ -31,10 +31,7 @@
   </head>
   <body>
     
-    <div class="bg-heart">
-      <div class="blur">
-      </div>
-    </div>
+    
 
 
     <nav-bar></nav-bar>
@@ -48,21 +45,25 @@
       <div class="swiper mySwiper">
         <div class="swiper-wrapper"></div>
         <div class="swiper-pagination"></div>
+        <!-- <p class="location"></p> -->
       </div>
 
 
 
       <div id="Modal" class="modal">
+        <i data-feather="x" width="24" class="closeModal"></i>
         <h2 id="modalTitle"></h2>
-        <p id="modalBreed"></p>
-        <p id="modalLocation"></p>
-        <p id="modalEnterDate"></p>
-        <p id="modalGender"></p>
-        <p id="modalAge"></p>
+        <div class="grid">
+          <p id="modalBreed"></p>
+          <p id="modalLocation"></p>
+          <p id="modalEnterDate"></p>
+          <p id="modalGender"></p>
+          <p id="modalAge"></p>
+        </div>
         <div class="video-container">
           <iframe id="modalVideo" src="" frameborder="0" ></iframe>
         </div>
-        <custom-button data-type="secondary" data-label="확인" id="closeModal"></custom-button>
+        <custom-button data-type="secondary" data-label="확인" class="closeModal"></custom-button>
       </div>
 
 
@@ -84,6 +85,9 @@
           effect: "cards",
           grabCursor: true,
         });
+      </script>
+      <script>
+        feather.replace();
       </script>
     </div>
   </body>
