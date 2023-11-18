@@ -169,6 +169,99 @@ body {
   font-size: 12px;
 }
 
+/*중간정보*/
+.news_container{
+  padding: 0; 
+  max-width: 850px; 
+  width: 100%;
+  margin: 30px auto; 
+}
+.community_title {
+  text-align: left;
+}
+.wrap_title > button{
+  border-radius: 40px;
+  font-size: 14px;  
+  color: #9CA3AF;
+  border: none;
+}
+
+
+.news_content {
+  display: flex;
+  height: 130px;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 0 0 8px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #dbe0e8;
+
+}
+.news_content > .content_box {
+  width: 100%;
+}
+.box_title {
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #373e46;
+}
+
+.talk_container{
+  margin-bottom: 50px;
+}
+.talk_content {
+  margin-top: 5px;
+}
+.talk_box{
+  margin: 5px;
+}
+
+.talk_title {
+  font-weight: 400;
+  color: #373e46;
+
+}
+.talk_subTitle{
+  color: #9CA3AF;
+  font-size: 11px;
+  margin-bottom: 10px;
+
+}
+.talk_oppor {
+  color: #6B7280;
+  font-size: 10px;
+  display: flex;
+  width: 700px;
+}
+.talk_oppor > div {
+  margin-right: 10px;
+}
+
+.section {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.section:hover {
+  background-color: #2980b9;
+}
+
+.content {
+  display: none;
+  padding: 10px;
+}
+
+.active {
+  display: block;
+}
+
+.talk_content{
+  height: 50px;
+}
+
 @media (max-width: 800px) {
   .productAd {
     flex-direction: column;

@@ -1,4 +1,3 @@
-
 function writePost() {
     window.location.href = 'write.html'
 }
