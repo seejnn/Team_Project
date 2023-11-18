@@ -215,8 +215,44 @@ document.addEventListener("DOMContentLoaded", () => {
       header.append(logo, topMenu, menu);
       this.shadowRoot.append(style, header, sidebar, overlay);
 
-      // const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+      //# DB 접근
       const isLoggedIn = false;
+
+      function getLoginInfo() {
+
+        const request = indexedDB.open("myPetDB", 1);
+        console.log(request);
+
+        // 데이터베이스 열기 또는 생성 성공 시 실행되는 이벤트 핸들러
+        request.onupgradeneeded = function(event) {
+        const db = event.target.result;
+
+        const transaction = db.transaction(["user"], "readonly");
+
+        const objectStore = transaction.objectStore("user");
+
+        const request1 = objectStore.getAll();
+
+
+      request.onerror = function (event) {
+        // Handle errors!
+      };
+      request.onsuccess = function (event) {
+        console.log(request1);
+        isLoggedIn = true;
+      };
+    }
+
+      }
+
+      getLoginInfo();
+      
+
+
+
+
+      // const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
       if (isLoggedIn) {
         btnGroup.style.display = "none";
@@ -248,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const menuItems = [
         { text: "견종 카테고리", link: "/dogtype.html" },
         { text: "가족 찾기", link: "/findAnimal.html" },
-        { text: "꿀팁", link: "#" },
+        { text: "꿀팁", link: "/tip.html" },
         { text: "자유 커뮤니티", link: "/community.html" },
       ];
 
@@ -261,12 +297,11 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
       sidebar.appendChild(sidebarLogo);
 
-      
       menuItems.forEach((item) => {
         const menuItem = document.createElement("a");
         menuItem.textContent = item.text;
         menuItem.href = item.link;
-        
+
         sidebar.appendChild(menuItem);
       });
 
@@ -274,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const menuItem = document.createElement("a");
         menuItem.textContent = item.text;
         menuItem.href = item.link;
-        
+
         topMenu.appendChild(menuItem);
       });
 
@@ -296,18 +331,16 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "/signIn.html";
       });
 
-
       const sideLoginButton = this.shadowRoot.querySelector("#sideLoginButton");
       sideLoginButton.addEventListener("click", () => {
         window.location.href = "/login.html";
       });
 
-      const sideSignupButton = this.shadowRoot.querySelector("#sideSignupButton");
+      const sideSignupButton =
+        this.shadowRoot.querySelector("#sideSignupButton");
       sideSignupButton.addEventListener("click", () => {
         window.location.href = "/signIn.html";
       });
-
-      
     }
   }
 
