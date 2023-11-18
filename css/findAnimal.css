@@ -167,7 +167,7 @@ body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initial
 
 
 .swiper-slide custom-button {
-  width: 80px;
+  width: 90px;
 }
 
 .swiper-slide .contents {
@@ -235,6 +235,7 @@ body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initial
 
 .modal custom-button {
   display: flex;
+  width: fit-content;
   justify-content: center;
   text-align: center;
   max-width: 120px;
