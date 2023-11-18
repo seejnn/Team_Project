@@ -1,3 +1,4 @@
+
 .searchFab {
   width: 60px;
   height: 60px;
@@ -109,6 +110,10 @@ strong.neg {
   gap: 60px;
 }
 
+.explainText > div{
+  width: 400px;
+}
+
 .fitImage {
   display: flex;
   gap: 24px;
@@ -156,6 +161,7 @@ strong.neg {
   .explainText {
     flex-direction: column;
     gap: 0;
+    align-items: center;
   }
   .hero {
     margin-top: 60px;
