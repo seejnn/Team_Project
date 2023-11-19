@@ -59,13 +59,12 @@
                     <div class="panel-heading" role="tab">
                         <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx1"
                             aria-constrols="addEx1">
-                            <div style="display: inline-block;" class="writer"><i
-                                    class="bi bi-person"></i>마이펫</div>
+                            <div style="display: inline-block;" class="writer"><i class="bi bi-person"></i>마이펫</div>
                         </a>
                     </div>
                     <div id="accEx1" class="panel-collapse collapse" role="tabpanel">
                         <div class="panel-body">
-                            강아지 귀가 뒤로 젖혀있다면 여러가지 의미에서 주의가 필요합니다. 왜냐면 아주 긍정적인 의미이거나 아주 부정적인 기분을 나타내기 때문이죠. 
+                            강아지 귀가 뒤로 젖혀있다면 여러가지 의미에서 주의가 필요합니다. 왜냐면 아주 긍정적인 의미이거나 아주 부정적인 기분을 나타내기 때문이죠.
                         </div>
                     </div>
                 </div>
@@ -104,7 +103,7 @@
                             aria-constrols="addEx3">
                             <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
                                     class="bi bi-person"></i>마이펫</div>
-                            
+
                         </a>
                     </div>
                     <div id="accEx3" class="panel-collapse collapse" role="tabpanel">
@@ -127,7 +126,7 @@
                             aria-constrols="addEx4">
                             <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
                                     class="bi bi-person"></i>마이펫</div>
-                            
+
                         </a>
                     </div>
                     <div id="accEx4" class="panel-collapse collapse" role="tabpanel">
@@ -149,7 +148,7 @@
                             aria-constrols="addEx5">
                             <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
                                     class="bi bi-person"></i>마이펫</div>
-                        
+
                         </a>
                     </div>
                     <div id="accEx5" class="panel-collapse collapse" role="tabpanel">
@@ -164,7 +163,7 @@
                     <div class="panel-heading" role="tab">
                         <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent"
                             data-target="#accEx6" aria-constrols="addEx6">
-                        초보견주 산책하기
+                            초보견주 산책하기
                         </a>
                     </div>
                     <div class="panel-heading" role="tab">
@@ -172,7 +171,7 @@
                             aria-constrols="addEx6">
                             <div style="display: inline-block;" class="writer"><i style="margin-right: 3px;"
                                     class="bi bi-person"></i>마이펫</div>
-                            
+
                         </a>
                     </div>
                     <div id="accEx6" class="panel-collapse collapse" role="tabpanel">
@@ -199,7 +198,7 @@
         </div>
     </div>
     </div>
-    <script>
+    <!-- <script>
         // 페이지 번호를 감지하는 함수
         function handlePageClick(event) {
             // 이벤트가 발생한 a 태그의 기본 동작을 막습니다.
@@ -226,6 +225,54 @@
         pageLinks.forEach(link => {
             link.addEventListener('click', handlePageClick);
         });
+    </script> -->
+
+    <script>
+        function getPosts(pageNum) {
+            // 페이지에 따라 보여질 아이템을 설정합니다.
+            const itemsPerPage = 5; // 한 페이지당 보여질 아이템 수
+            const startIdx = (pageNum - 1) * itemsPerPage;
+            const endIdx = startIdx + itemsPerPage;
+
+            // 전체 아이템을 감싸는 부모 요소
+            const accParent = document.getElementById('accParent');
+            // 모든 아이템 요소
+            const panelItems = accParent.querySelectorAll('.panel');
+
+            // 모든 아이템을 숨깁니다.
+            panelItems.forEach(item => {
+                item.style.display = 'none';
+            });
+
+            // 현재 페이지에 해당하는 아이템만 보여줍니다.
+            for (let i = startIdx; i < endIdx && i < panelItems.length; i++) {
+                panelItems[i].style.display = 'block';
+            }
+        }
+
+        function handlePageClick(event) {
+            event.preventDefault();
+
+            const clickedPage = event.target.dataset.page;
+
+            const defaultPageNum = document.getElementsByClassName('on');
+            for (let i = 0; i < defaultPageNum.length; i++) {
+                defaultPageNum[i].classList.remove('on');
+            }
+
+            const pageNum = document.getElementById(`pageNum${clickedPage}`);
+            pageNum.classList.add('on');
+
+            // 페이지 번호에 따라 해당 아이템을 보여줍니다.
+            getPosts(clickedPage);
+        }
+
+        const pageLinks = document.querySelectorAll('.pageNumber');
+        pageLinks.forEach(link => {
+            link.addEventListener('click', handlePageClick);
+        });
+
+
     </script>
 
 

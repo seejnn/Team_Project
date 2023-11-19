@@ -24,12 +24,12 @@ body {
 
 .thumbnail {
   max-height: 180px;
-  max-width: none;
+  /* max-width: none; */
 }
 
 .all_community{
-  width: 100%;
-  max-width: 800px;
+  /* width: 100%; */
+  /* max-width: 800px; */
   margin: 100px auto 0;
   padding: 0px 17px;
   box-sizing: border-box;
@@ -37,25 +37,30 @@ body {
 .community_title{
   font-weight: bolder;
   font-size: 23px;
-  margin-bottom: 5px;
+  margin:0 0 5px 20px;
   color: #0ea5e9;
+  width: 300px;
 }
 
 .text1 , .text2{
   margin-top: 20px;
   text-align: center;
-  /*border: 1px solid black;*/
+  width: 100%;
   /*justify-content: space-evenly;*/
 }
 .text1_img , .text2_img{
   vertical-align: middle;
-  height: 450px;
+  width: 100% ;
+  height: auto;
 }
 
 .article_title{
   margin: 10px 0 0 5px;
   font-size: 16px;
   font-weight: bold;
+}
+.article_box {
+  margin: 0 20px;
 }
 .article_box > .box1 , .box2{
   border: 1px solid #E5E7EB;
@@ -64,6 +69,9 @@ body {
   box-sizing: border-box; padding: 10px;
   box-shadow: 0px 0px 30px #dbe0e8;
   transition: transform 0.3s;
+}
+.box1{
+  margin-right: 60px;
 }
 
 .article_box > .box1:hover {
@@ -81,7 +89,7 @@ body {
   padding: 13px 0 0 4px;
 }
 .blogHead > .writer{
-  position: relative;
+  /* width: 100%; */
   padding-right: 10px;
 }
 
@@ -91,12 +99,12 @@ body {
 }
 
 .write_date > .eye {
-  padding-right: 8px;
+  /* padding-right: 8px; */
   font-size: 12px;
 }
 
 .board_wrap {
-  width: 100%;
+  /* width: 100%; */
   /* display: inline-block; */
 }
 
@@ -136,42 +144,23 @@ body {
   cursor: pointer;
 }
 
-.talk_commu{
-  font-weight: bolder;
-  font-size: 23px;
-  color: #0ea5e9;
-  margin-bottom: 10px;
-}
-/* title 판넬 css */
-.panel-heading>#astyle {
-  font-weight: bold;
-  font-size: 15px;
-  color: #374151;
-  text-decoration: none
-}
-
-.panel-group {
-  margin-top: 20px;
-
-}
-
 .date {
   color: #6B7280;
   font-size: 12px;
 }
 
 .writer {
-  margin-right: 50px;
+  /* margin-right: 50px; */
   color: #6B7280;
   font-size: 12px;
 }
 
 /*중간정보*/
 .news_container{
-  padding: 0; 
-  max-width: 850px; 
+  max-width: 850px ;
   width: 100%;
-  margin: 30px auto; 
+  margin:25px auto;
+  
 }
 .community_title {
   text-align: left;
@@ -182,7 +171,6 @@ body {
   color: #9CA3AF;
   border: none;
 }
-
 
 .news_content {
   display: flex;
@@ -196,15 +184,22 @@ body {
 }
 .news_content > .content_box {
   width: 100%;
+  border: 1px solid black;
+
 }
 .box_title {
   font-weight: 400;
   margin-bottom: 20px;
   color: #373e46;
+  max-width: 100px;
+  border: 1px solid black;
+  height: 50px;
+  word-wrap: break-word;
 }
 
 .talk_container{
-  margin-bottom: 50px;
+  margin: 0 auto 70px;
+  width: 850px;
 }
 .talk_content {
   margin-top: 5px;
@@ -261,30 +256,49 @@ body {
   height: 50px;
 }
 
-@media (max-width: 800px) {
-  .productAd {
-    flex-direction: column;
-  }
-
-  .rightArrow {
-    display: none;
-  }
+.contentEx {
+  display: flex;
+  border-bottom: 1px solid #dbe0e8;
+  padding: 8px 0 15px;
+}
+.contentEx img {
+  max-width: 130px; /* 이미지 최대 너비 */
+  margin-right: 10px; /* 이미지와 텍스트 사이 간격 */
+  border-radius: 0;
+}
+.bi-person{
+  color: #9CA3AF;
+  font-size: 10px;
 }
 
-@media screen and (max-width: 800px) {
-  .contentHeader {
-    padding-top: 0;
-    top: 70px;
-  }
+/* 하단톡톡 */
+.contentEx2 {
+  display: flex;
+  flex-direction: column; 
+  max-width: 850px;
+  margin: 0 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #dbe0e8;
 }
 
-@media screen and (max-width: 480px) {
-  .pageNumber>a {
-    width: 26px;
-    height: 26px;
-  }
-  .container{
-    width: 400px;
-    margin: 0 20px;
+.title {
+  margin-bottom: 7px; 
+}
+.example{
+  margin-bottom: 5px;
+  font-size: 11px;
+}
+.info {
+  display: flex;
+  justify-content: space-between; 
+  color: #888; 
+  font-size: 10px;
+  width: 200px;
+}
+
+@media (max-width: 480px) {
+
+  .image-box {
+    padding: 0 10px;
   }
 }
