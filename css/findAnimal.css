@@ -121,7 +121,7 @@ iframe {
 
 
 .container {
-  overflow: hidden;
+  overflow: visible;
   padding-bottom: 60px;
   margin: 0 auto;
   margin-top: 120px;
@@ -133,8 +133,8 @@ iframe {
 
 
 .swiper {
-  width: 240px;
-  height: 320px;
+  width: 40vh;
+  height: 60vh;
   overflow: visible;
 }
 
@@ -152,11 +152,15 @@ iframe {
 }
 
 .swiper-slide img {
+  position: absolute;
   width: 90%;
   height: 70%;
   object-fit: cover;
   margin: 0;
-  transform: translate(10px, 10px);
+  /* transform: translate(10px, 10px); */
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 20px);
 }
 
 #my-swiper .swiper-pagination {
@@ -173,18 +177,25 @@ body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initial
 
 .swiper-slide custom-button {
   width: 90px;
+  display: flex;
+  flex-grow: 1;
 }
 
 .swiper-slide .contents {
   display: flex;
-  margin: 16px;
+  /* margin: 16px; */
+  padding: 24px;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .swiper-slide .text {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 6;
   gap: 4px;
 }
 
@@ -255,6 +266,7 @@ body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initial
 
 .modal button {
   width: 120px;
+  position: fixed;
 }
 
 

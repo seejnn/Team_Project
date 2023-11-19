@@ -24,6 +24,7 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
     <!-- <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=80bad8c0d05b53223370f4e46bc05b7e&libraries=services"
@@ -88,6 +89,16 @@
       </script>
       <script>
         feather.replace();
+      </script>
+      <script>
+        const lenis = new Lenis();
+  
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+  
+        requestAnimationFrame(raf);
       </script>
     </div>
   </body>
