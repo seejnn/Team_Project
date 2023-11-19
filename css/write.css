@@ -11,12 +11,14 @@
 }
 
 
+
 .mycontainer {
     margin-bottom: 40px;
 }
 
 
 .top , .bottom {
+
     display: flex;
     gap: 20px;
 }
@@ -40,7 +42,6 @@
 .bottom {
     flex-direction: column;
 }
-
 
 .top > input {
     border: none;
