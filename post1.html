@@ -28,6 +28,7 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
         integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
     <script src="javascript/index.js"></script>
+    <script src="javascript/viewPost.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script>
         sessionStorage.setItem('currentPageNum', '1');
@@ -82,16 +83,22 @@
             </div>
             <!-- 댓글 입력 창 -->
             <div class="commentBox">
-                <text-field data-placeholder="닉네임"></text-field>
-                <text-field data-placeholder="비밀번호" data-btn="password"></text-field>
+                <text-field data-placeholder="닉네임" id="authorInput"></text-field>
+                <text-field data-placeholder="비밀번호" data-btn="password" id="passwordInput"></text-field>
                     
             </div>
-            <text-area data-placeholder="댓글을 입력하세요">
+            <text-area data-placeholder="댓글을 입력하세요" id="commentInput">
             </text-area>
             <div class="btngrp">
                 <custom-button data-type='ghost' data-label="뒤로가기" onclick="listbutton()"></custom-button>
                 <custom-button data-type='primary' data-label="작성" onclick="addComment()"></custom-button>
             </div>
+
+
+
+
+
+
 
             <!-- <div class="commentBox box2">
                 <textarea placeholder="댓글을 입력하세요..." name="comment" id="commentInput" cols="" rows="1" style="overflow: hidden; overflow-wrap: break-word; width: 1000px; height: 80px; resize: none; outline: none; padding: 10px;"></textarea>

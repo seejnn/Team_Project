@@ -1,9 +1,9 @@
-window.onload = function () {
-    var image = document.getElementById('iimage1');
-    var content = document.getElementsByClassName(content);
+// window.onload = function () {
+//     var image = document.getElementById('iimage1');
+//     var content = document.getElementsByClassName(content);
 
-    content.style.height = img.clientHeight + 'px';
-}
+//     content.style.height = img.clientHeight + 'px';
+// }
 
 function hot() {
     window.location.href = 'community.html'
