@@ -39,10 +39,10 @@
   <nav-bar></nav-bar>
   <!--보조헤더-->
   <div class="contentHeader">
-    <a href="#">전체</a>
-    <a href="#">HOT</a>
-    <a href="#">News</a>
-    <a href="#">톡Talk</a>
+    <span onclick="all()">전체</span>
+    <span onclick="hot()">HOT</span>
+    <span onclick="news()">News</span>
+    <span onclick="talk()">톡Talk</span>
   </div>
   <!--커뮤니티 썸네일 이미지-->
   <div class="image-box">
@@ -67,7 +67,7 @@
     <!--아티클 부분-->
     <div class="article_box" style="display: flex; flex-wrap: wrap;">
       <!-- 첫번째 아티클 -->
-      <article class="box1">
+      <article onclick="goToScreen()" class="box1">
         <div class="text1">
           <a href="#"><img class="text1_img" src="/example/강아지치킨 500계치킨.jpg" style="border-radius: 0 ;"></a>
         </div>
@@ -87,7 +87,7 @@
       </article>
       <div style="width: 70px;"></div>
       <!-- 두번째 아티클 -->
-      <article class="box2">
+      <article onclick="goToScreen2()" class="box2">
         <div class="text2">
           <a href="#"><img class="text2_img" src="/example/시바강쥐.jpg" style="border-radius: 0 ;"></a>
         </div>
@@ -113,7 +113,7 @@
   </div>
 
   <!--중간 정보 커뮤니티 -->
-  <div class="news_container" >
+  <div class="news_container" id="newsSection">
     <div>
       <div class="wrap_title" style="display: flex; justify-content: space-between; margin-bottom: 15px;">
         <div class="community_title">친절한 News Room</div>
@@ -170,12 +170,13 @@
       </div>
     </div>
 
-    <div class="talk_content" >
+    
+    <div class="talk_content">
       <div class="talk_box">
         <div class="talk_title">
-          <span>문제가뭐녜두</span>
+          <span>강아지 치석제거껌 먹고 피</span>
         </div>
-        <div class="talk_subTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div class="talk_subTitle">잇몸에서 피가 너무 많이 나는데 병원가야될까요??? </div>
         <div class="talk_oppor">
           <div style="width: 40px; border-right: 1px solid #6B7280;"><i class="bi bi-person">마이펫</i></div>
           <div>2023-11-17 </div>
@@ -187,12 +188,12 @@
     <div class="talk_content" >
       <div class="talk_box">
         <div class="talk_title">
-          <span>문제가뭐녜두</span>
+          <span>실외배변 하려고 참는 아이덕분에 밤마다 야간산책</span>
         </div>
-        <div class="talk_subTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+        <div class="talk_subTitle">으ㅜㅜ요즘 너무 추운데 꼭 가족구성원이 전부 자야지만 화장실가서 배변을 보거나 실외에서 배변하려고 참는아이때문에 밤마다 야간산책을 나가네요:( </div>
         <div class="talk_oppor">
           <div style="width: 40px; border-right: 1px solid #6B7280;"><i class="bi bi-person">마이펫</i></div>
-          <div>2023-11-17 </div>
+          <div>2023-11-11 </div>
           <div> 댓글</div>
         </div>
       </div>
@@ -201,26 +202,12 @@
     <div class="talk_content" >
       <div class="talk_box">
         <div class="talk_title">
-          <span>문제가뭐녜두</span>
+          <span>강아지 발바닥 패드 까짐</span>
         </div>
-        <div class="talk_subTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        <div class="talk_subTitle">코코는 발바닥이 유독 약해서 항상 발바닥 연고 크림은 필수로 발라주며 관리 해주는 중인데요 패드는 한번 까지면 복구가 힘들다곤 하는데 ㅠㅠ 좀 더 좋은 관리법이 있을까요? </div>
         <div class="talk_oppor">
           <div style="width: 40px; border-right: 1px solid #6B7280;"><i class="bi bi-person">마이펫</i></div>
-          <div>2023-11-17 </div>
-          <div> 댓글</div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 5px; border-top: 1px solid #dbe0e8;"></div>
-    <div class="talk_content" >
-      <div class="talk_box">
-        <div class="talk_title">
-          <span>문제가뭐녜두</span>
-        </div>
-        <div class="talk_subTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
-        <div class="talk_oppor">
-          <div style="width: 40px; border-right: 1px solid #6B7280;"><i class="bi bi-person">마이펫</i></div>
-          <div>2023-11-17 </div>
+          <div>2023-11-11 </div>
           <div> 댓글</div>
         </div>
       </div>
@@ -231,7 +218,7 @@
     <!--글쓰기 버튼-->
     <button data-label="글쓰기" onclick="writePost()" class="writeButton"><i class="bi bi-pencil"></i></button>
 
-  <footer>
+  <footer >
     <ul>
       <li>회사소개</li>
       <li>이용약관</li>

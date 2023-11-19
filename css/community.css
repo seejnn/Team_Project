@@ -1,4 +1,4 @@
-* {
+* contentHeader{
   margin: 0;
   padding: 0;
 }
@@ -116,27 +116,24 @@ body {
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.237);
 }
 
-.contentHeader>ul {
-  margin: 0;
-  display: flex;
-  /* align-items: center; */
-  /* line-height: 20px; */
-  justify-content: center;
+.contentHeader {
+  padding: 0  0 14px;
   position: relative;
+  top: 80px;
+  display: flex;
+  justify-content: space-evenly;
   border-bottom: 1px solid #E5E7EB;
-  top: 100px;
-  white-space: nowrap;
 }
 
-.contentHeader>ul>li {
-  margin: 0 60px 16px;
-}
 
 .contentHeader a {
   color: #6B7280;
-  /* 링크 색상을 부모 요소로부터 상속받음 */
   text-decoration: none;
-  /* 밑줄 제거 */
+}
+.contentHeader span {
+  color: #6B7280;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .talk_commu{
@@ -224,8 +221,10 @@ body {
 .talk_subTitle{
   color: #9CA3AF;
   font-size: 11px;
-  margin-bottom: 10px;
-
+  margin: 5px 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .talk_oppor {
   color: #6B7280;
