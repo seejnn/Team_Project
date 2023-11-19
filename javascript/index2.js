@@ -391,57 +391,11 @@ const dog = document.querySelector("#mainImageDog");
 const mainImg = document.querySelector("#mainImage");
 const titleText = document.querySelector(".hero__title");
 
-// console.log(dog, mainImg, titleText);
 
-// gsap.to(titleText, {
-//     duration: 1,
-//     y: 50,
-//     opacity: 0,
 
-//     // rotation: 360,
-//     // borderRadius: 100,
 
-//     scrollTrigger: {
-//         trigger: mainImg,
-//         start: "top 0%",
-//         end: "bottom 80%",
-//         scrub: 5,    //true, 1, 2,....
-//         markers: true,
-//     }
-// });
 
-// gsap.to(dog, {
-//     duration: 2,
-//     y: 0,
-//     // rotation: 360,
-//     // borderRadius: 100,
-
-//     scrollTrigger: {
-//         trigger: dog,
-//         start: "top 0%",
-//         end: "top 60px",
-//         pin: true,
-//         scrub: true,
-//         // markers: true,
-//     }
-// });
-
-// gsap.to(mainImg, {
-//     duration: 2,
-//     y: 0,
-//     // rotation: 360,
-//     // borderRadius: 100,
-
-//     scrollTrigger: {
-//         trigger: mainImg,
-//         start: "top 0%",
-//         end: "top 60px",
-//         pin: true,
-//         scrub: true,
-//         // markers: true,
-//     }
-// });
-
+//# GSAP  
 class App {
   constructor() {
     this._initialize();
@@ -451,9 +405,9 @@ class App {
   _initialize() {
     this._setInitialStates();
     this._createLenis();
-    this._createIntro();
     this._createPinSection();
     this._videoSection();
+    // this._section2();
   }
 
   _setInitialStates() {
@@ -461,9 +415,6 @@ class App {
       y: 32,
       opacity: 0,
     });
-    gsap.set('.step', {
-      y:0
-    })
   }
 
   _createLenis() {
@@ -472,18 +423,15 @@ class App {
     });
   }
 
-  _createIntro() {
-    // const tl = gsap.timeline();
 
-    // tl.to(".hero__title div", {
-    //   opacity: 1,
-    // }).to(".hero__title span", {
-    //   y: 0,
-    //   opacity: 1,
-    //   ease: "expo.out",
-    //   duration: 2,
-    //   stagger: 0.02,
-    // });
+  _createSection() {
+    gsap.utils.toArray(".section").forEach((panel, i) => {
+      ScrollTrigger.create({
+        trigger: panel,
+        start: "top top",
+        pin: true,
+      })
+    })
   }
 
   _createPinSection() {
@@ -491,7 +439,7 @@ class App {
       scrollTrigger: {
         trigger: ".fullwidth-image",
         start: "top top",
-        end: "bottom+=155% bottom",
+        end: "bottom+=100% bottom",
         scrub: true,
         pin: true,
         // markers: true,
@@ -556,17 +504,55 @@ class App {
       );
   }
 
+
+  // _section2() {
+  //   gsap.utils.toArray(".step").forEach((panel, i) => {
+  //     ScrollTrigger.create({
+  //       trigger: panel,
+  //       start: "top top",
+  //       pin: true,
+  //     })
+  //   })
+  // }
+
   _videoSection() {
     const coolVideo = document.querySelector("video");
+
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "video",
+        start: "top top",
+        end: "bottom+=350% bottom",
+        pin: true,
+        scrub: true,
+        // markers: {
+        //   startColor: "blue",
+        //   endColor: "darkblue",
+        //   fontSize: "18px",
+        //   fontWeight: "bold",
+        //   indent: 20
+        // }
+      }
+    });
+    
+
+
+    const texts = gsap.utils.toArray(".step");
+    texts.forEach((text, index) => {
+      tl.from(text, { scale: 1, autoAlpha: 1, duration: 1 }).to(
+        text,
+        { scale: 1.2, autoAlpha: 1, duration: 1 },
+        0
+      );
+    });
+
 
     coolVideo.onloadedmetadata = function () {
         tl.to(coolVideo, {
           currentTime: coolVideo.duration,
-        }, 0).to('.video__overlay', {
-          opacity: 0.8,
-        }, 0).to('.scroll-container', {
-          opacity: 1,
-        }, 1)
+          duration: () => tl.duration()+100
+        })
 
       };
 
@@ -584,27 +570,19 @@ class App {
       }
 
 
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".section2",
-          start: "top top",
-          end: "bottom+=100% bottom",
-          scrub: true,
-          markers: true,
-          pin: true,
-        },
-      });
-  
-      // tl.to(coolVideo, {
-      //   currentTime: coolVideo.duration,
-      // }, 0).to(".video__overlay", {
-      //     opacity: 0.5,
-      //   }, 0).to(".sec2-text1", {
-      //     opacity: 1,
-      //   }, 1)
-       
-        
 
+      // let tl = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: ".section2",
+      //     // start: "top 80px",
+      //     end: "bottom bottom",
+      //     scrub: true,
+      //     markers: true,
+      //     pin: true,
+      //   },
+      // });
+  
+      
   }
 
   _render(time) {
@@ -615,65 +593,3 @@ class App {
 }
 
 new App();
-
-// let tl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".section2",
-//     start: "top top",
-//     end: "bottom+=200% bottom",
-//     scrub: true,
-//     markers: true,
-//     pin: true,
-//   },
-// });
-
-
-
-// let sections = gsap.utils.toArray(".step");
-
-// sections.forEach((step, i) => {
-//     ScrollTrigger.create({
-//         trigger: step,
-//         start: "bottom bottom",
-//         end: "+=1000",
-//         pin: true,
-//         // markers: true,
-//         anticipatePin: 1,
-
-//     });
-
-//     gsap.fromTo('.step h1', { opacity: 0 }, {
-//         scrollTrigger: {
-//             trigger: step,
-//             scrub: 2,
-//             start: "top bottom",
-//             end: "bottom bottom",
-//         },
-//         opacity: 1,
-//         scale: 1.2,
-//         duration: 1,
-//         ease: "none",
-//     }, 1);
-
-//     gsap.fromTo('video', { currentTime: i }, {
-//         scrollTrigger: {
-//             trigger: step,
-//             scrub: 2,
-//             start: "top bottom",
-//             end: "bottom bottom",
-//         },
-//         // currentTime: (i + 1),
-//         duration: 1,
-//         // markers: true,
-//         ease: "none",
-//     });
-// });
-
-// gsap.to("video", {
-//     scrollTrigger: {
-//         start: "top top",
-//         end: "bottom+=200% bottom",
-//         scrub: true
-//     },
-//     scale: 1.5
-// })
