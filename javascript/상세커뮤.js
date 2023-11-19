@@ -8,6 +8,9 @@ window.onload = function () {
 function hot() {
     window.location.href = 'community.html'
 }
+function listbutton() {
+    window.location.href = 'community.html'
+}
 
 // JavaScript로 댓글 추가 및 목록 업데이트
 function addComment() {
