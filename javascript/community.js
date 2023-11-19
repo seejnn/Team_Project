@@ -7,9 +7,19 @@ function goToScreen2() {
 function hot() {
     window.location.href = '상세community.html'
 }
+
+
+
 function all() {
-    window.location.href = 'community.html'
+    var view = document.querySelector('.mycontainer')
+    var all = document.getElementById('allSection');
+
+    if (all) {
+        view.scrollIntoView({ behavior: 'smooth' });
+    }
 }
+
+
 
 function news() {
     var news = document.getElementById('newsSection');
@@ -18,6 +28,9 @@ function news() {
         newsSection.scrollIntoView({ behavior: 'smooth' });
     }
 }
+
+
+
 function talk() {
     var talk = document.getElementById('talkSection');
 
