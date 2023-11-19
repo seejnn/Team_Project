@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.writeWrap {
+    /* border: 1px solid #D1D5DB; */
+    height: 500px;
+}
+.pageTitle {
+    margin-bottom: 30px;
+}
+.category-options {
+    display: none;
+}
+
+.write_head {
+    margin: 10px;
+}
+.top , .bottom {
+    display: flex;
+    margin-top: 10px;
+}
+.top > input {
+    border: none;
+    border-bottom: 2px solid #D1D5DB;
+    width: 200px;
+    margin-right: 10px;
+    font-size: 12px;
+    outline: none;
+}
+.bottom > select {
+    border: none;
+    border-bottom: 2px solid #D1D5DB;
+    margin-right: 10px;
+    outline: none;
+}
+.bottom > select > option {
+    color: #0284c7;
+    font-size: 12px;
+    outline: none;
+}
+.bottom > input {
+    border: none;
+    border-bottom: 2px solid #D1D5DB;
+    width: 300px;
+    margin-right: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* 툴바 */
+.container_write{
+    max-width: 100%;
+    margin: 20px auto;
+    border: 1px solid #E5E7EB;
+}
+.editor-toolbar {
+    background-color: #4B5563;
+    /* margin-bottom: 10px; */
+    height: 40px;
+}
+.fas.fa-bold , .fas.fa-italic, .fas.fa-underline ,.fas.fa-link, fas.fa-image{
+    font-size: 10px;
+    background-color: #4B5563;
+}
+
+.editor-content > textarea{
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+}
