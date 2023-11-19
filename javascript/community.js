@@ -1,11 +1,11 @@
 function goToScreen() {
-    window.location.href = '상세community.html'
+    window.location.href = 'post1.html'
 }
 function goToScreen2() {
-    window.location.href = '상세community2.html'
+    window.location.href = 'post2.html'
 }
 function hot() {
-    window.location.href = '상세community.html'
+    window.location.href = 'post1.html'
 }
 
 

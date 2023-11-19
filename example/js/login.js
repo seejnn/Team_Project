@@ -39,7 +39,7 @@ function login(){
                     sessionStorage.setItem('isLoginUser', JSON.stringify(user));
                     
                     alert("로그인 성공");
-                    window.location.href = 'index.html';
+                    window.location.href = 'community.html';
                 } else {
                     alert("비밀번호가 일치하지 않습니다.");
                 }
