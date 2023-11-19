@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>마이펫 - 커뮤니티</title>
+    <title>마이펫 - 팁 & 정보</title>
 
     <!-- 아코디언 CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -20,26 +20,28 @@
     <link rel="stylesheet" href="/css/footer.css">
 
     <script type="module" src="/components/navbar.js"></script>
-    <script type="module" src="/components/post2.js"></script>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
         integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
     <script src="javascript/index.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
     <script>
-        sessionStorage.setItem('currentPageNum', '1');
-        getPosts(sessionStorage.getItem('currentPageNum'));
+        // sessionStorage.setItem('currentPageNum', '1');
+        // getPosts(sessionStorage.getItem('currentPageNum'));
     </script>
 </head>
 
 <body>
     <nav-bar></nav-bar>
-    <div class="container" style="margin-top: 80px;">
+    <div class="mycontainer" style="margin-top: 80px;">
         <div class="board_wrap">
-            <div class="tip_title"><i class="bi bi-award"></i>
-                초보견주 필독!</div>
-            <div style="margin-bottom: 20px;">
+            <h1 class="tip_title"><i class="bi bi-award"></i>
+                초보견주 필독!</h1>
+            <div class="tip-tags" style="margin-bottom: 20px;">
                 <span>#알쓸견잡</span>
                 <span>#나도곧강형욱</span>
                 <span>#필수상식</span>
@@ -48,14 +50,17 @@
 
         <div class="container-fluid">
             <div class="panel-group" id="accParent" role="tablist">
+
+
                 <!-- 첫번째 아이템 -->
-                <div class="panel panel-default">
+                <div class="panel panel-default" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx1"
+                aria-constrols="addEx1">
+                    
+                    
                     <div class="panel-heading" role="tab">
-                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx1"
-                            aria-constrols="addEx1">
-                            강아지 귀로 기분을 알아내는 방법
-                        </a>
-                    </div>
+                            <h3>강아지 귀로 기분을 알아내는 방법</h3>
+                        </div>
+                    
                     <div class="panel-heading" role="tab">
                         <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx1"
                             aria-constrols="addEx1">
@@ -67,15 +72,16 @@
                             강아지 귀가 뒤로 젖혀있다면 여러가지 의미에서 주의가 필요합니다. 왜냐면 아주 긍정적인 의미이거나 아주 부정적인 기분을 나타내기 때문이죠.
                         </div>
                     </div>
+                
                 </div>
 
                 <!-- 두번째 아이템 -->
-                <div class="panel panel-default">
+                <div class="panel panel-default" role="button" data-toggle="collapse" data-parent="#accParent"
+                data-target="#accEx2" aria-constrols="addEx2">
                     <div class="panel-heading" role="tab">
-                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent"
-                            data-target="#accEx2" aria-constrols="addEx2">
-                            동물병원 잘 찾는 방법
-                        </a>
+                        
+                            <h3>동물병원 잘 찾는 방법</h3>
+                    
                     </div>
                     <div class="panel-heading" role="tab">
                         <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx2"
@@ -91,12 +97,12 @@
                     </div>
                 </div>
                 <!-- 세번째 아이템 -->
-                <div class="panel panel-default">
+                <div class="panel panel-default" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx3"
+                aria-constrols="addEx3">
                     <div class="panel-heading" role="tab">
-                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx3"
-                            aria-constrols="addEx3">
-                            강아지 미용 추천 vs 비추천
-                        </a>
+                        
+                            <h3>강아지 미용 추천 vs 비추천</h3>
+                        
                     </div>
                     <div class="panel-heading" role="tab">
                         <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx3"
@@ -114,12 +120,12 @@
                 </div>
 
                 <!-- 네번째 아이템 -->
-                <div class="panel panel-default">
+                <div class="panel panel-default" id="astyle" role="button" data-toggle="collapse" data-parent="#accParent"
+                data-target="#accEx4" aria-constrols="addEx4">
                     <div class="panel-heading" role="tab">
-                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent"
-                            data-target="#accEx4" aria-constrols="addEx4">
+                        <h3 >
                             우리 아이에게 맞는 강아지 사료 고르는 법
-                        </a>
+                        </h3>
                     </div>
                     <div class="panel-heading" role="tab">
                         <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx4"
@@ -136,12 +142,12 @@
                     </div>
                 </div>
                 <!-- 다섯번째 아이템 -->
-                <div class="panel panel-default">
+                <div class="panel panel-default" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx5"
+                aria-constrols="addEx5">
                     <div class="panel-heading" role="tab">
-                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx5"
-                            aria-constrols="addEx5">
-                            강아지 목욕 방법법
-                        </a>
+                        <h3>
+                            강아지 목욕 방법
+                        </h3>
                     </div>
                     <div class="panel-heading" role="tab">
                         <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx5"
@@ -159,12 +165,14 @@
                 </div>
 
                 <!-- 여섯번째 아이템 -->
-                <div class="panel panel-default">
+                <div class="panel panel-default" role="button" data-toggle="collapse" data-parent="#accParent"
+                data-target="#accEx6" aria-constrols="addEx6">
                     <div class="panel-heading" role="tab">
-                        <a id="astyle" role="button" data-toggle="collapse" data-parent="#accParent"
-                            data-target="#accEx6" aria-constrols="addEx6">
-                            초보견주 산책하기
-                        </a>
+
+                        <h3>
+                        초보견주 산책하기
+                        </h3>
+
                     </div>
                     <div class="panel-heading" role="tab">
                         <a role="button" data-toggle="collapse" data-parent="#accParent" href="#accEx6"
@@ -197,6 +205,7 @@
             <a href="#" class="last"><i class="bi bi-chevron-double-right"></i></i></a>
         </div>
     </div>
+
     </div>
     <!-- <script>
         // 페이지 번호를 감지하는 함수
@@ -285,12 +294,27 @@
             <li>상품광고 소개</li>
             <li>고객의 소리</li>
         </ul>
-        <p>COMPANY : (주)마이펫
-        </p>
-        <p>Tel. 070-1234-1521 ㅣ mypet@gmail.com</p>
-        <p>address : 서울특별시 마포구 도화2길 53</p>
+        <p>(주)마이펫</p>
+        <p>070-1234-1521 ㅣ mypet@gmail.com</p>
+        <p>서울특별시 마포구 도화2길 53</p>
         <p>&copy; 2023 Your Website. All rights reserved.</p>
     </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+
+    <script>
+        const lenis = new Lenis()
+
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+    </script>
+
 </body>
 
 </html>

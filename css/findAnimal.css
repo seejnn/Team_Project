@@ -29,6 +29,9 @@
 
 h2 {
   margin-bottom: 12px;
+  font-family: 'Dongle', sans-serif;
+  line-height: 1;
+  font-size: 4rem;
 }
 
 img {
@@ -120,7 +123,7 @@ iframe {
 
 
 
-.container {
+.mycontainer {
   overflow: visible;
   padding-bottom: 60px;
   margin: 0 auto;
@@ -128,8 +131,11 @@ iframe {
 }
 
 .pageTitle {
-  margin-bottom: 30px !important;
+  margin: 0 !important;
   color: #0ea5e9;
+  font-family: 'Dongle', sans-serif;
+  line-height: 1;
+  font-size: 4rem;
 }
 
 
@@ -169,7 +175,7 @@ iframe {
   transform: translate(0px, 300px);
 }
 
-body > div.container > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initialized.swiper-horizontal.swiper-watch-progress > div.swiper-pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
+body > div.mycontainer > div.swiper.mySwiper.swiper-cards.swiper-3d.swiper-initialized.swiper-horizontal.swiper-watch-progress > div.swiper-pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
   color: var(--color-gray-400);
   transform: translate(0, 60px);
   font-family: 'Pretendard Variable', sans-serif;
