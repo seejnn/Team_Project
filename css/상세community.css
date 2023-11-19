@@ -28,11 +28,10 @@
 }
 
 .board_view {
-    position: relative;
-    top: 100px;
-    width: 1000px;
-    margin: auto;
-    margin-bottom: 300px;
+    max-width: 850px;
+    margin: 40px auto 300px;
+    padding: 0 20px;
+    width: 100%;
 }
 
 .board_summary {
@@ -122,6 +121,7 @@
 #commentList {
     list-style-type: none;
     padding: 0;
+    height: auto;
 }
 
 .comment {
@@ -174,4 +174,13 @@
     color: #D1D5DB;
     font-size: 13px;
     margin-left: 10px;
+}
+
+@media (max-width : 570px) {
+    #authorInput{
+        width: 150px;
+    }
+    #passwordInput{
+        width: 150px;
+    }
 }

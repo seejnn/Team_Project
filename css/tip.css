@@ -35,9 +35,9 @@
     background-color: skyblue;
     color: white;
 }
-
-.panel-group {
-    width: 800px;   
+.container-fluid{
+    max-width: 850px;
+    width: 100%;
 }
 .panel {
     border: 1px solid #c4d2e5;
@@ -61,4 +61,15 @@
 .bi-person {
     color: black;
     margin-right: 3px;
+}
+
+@media (max-width : 480px) {
+    .top > input {
+        max-width: 180px !important;
+        width: 100% !important;
+    }
+    .bottom > input {
+        max-width: 250px !important;
+        width: 100% !important;
+    }
 }
