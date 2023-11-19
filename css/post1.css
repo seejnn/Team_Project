@@ -3,19 +3,54 @@
     padding: 0;
 }
 
-.contentHeader {
-    padding: 0  0 14px;
-    position: relative;
-    top: 80px;
-    display: flex;
-    justify-content: space-evenly;
-    border-bottom: 1px solid #E5E7EB;
-}
-.contentHeader a {
-    color: #6B7280;
-    text-decoration: none;
+
+.mycontainer {
+    margin: 20px auto !important;
 }
 
+.contentHeader {
+    position: sticky;
+    top: 78px;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid var(--color-gray-200);
+    background-color: white;
+    z-index: 5;
+    overflow-x: scroll;
+    min-width: 500px;
+    
+  }
+  
+
+
+.contentHeader {
+    -ms-overflow-style: none; /* 인터넷 익스플로러 */
+    scrollbar-width: none; /* 파이어폭스 */
+    
+  }
+  
+  .contentHeader::-webkit-scrollbar {
+    display: none;
+  }
+
+  .contentHeader a {
+    color: #6B7280;
+    text-decoration: none;
+  }
+  .contentHeader span {
+    color: var(--color-gray-400);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 16px 24px;
+    transition: all 0.5s;
+  }
+
+  
+  .contentHeader span:hover {
+    color: var(--color-sky-500);
+    transition: all 0.5s;
+  }
 .image-box {
     display: flex;
     margin-top: 98px;
@@ -28,9 +63,8 @@
 }
 
 .board_view {
-    max-width: 850px;
     margin: 40px auto 300px;
-    padding: 0 20px;
+    /* padding: 0 20px; */
     width: 100%;
 }
 
@@ -131,9 +165,9 @@
 
 /* 스타일링 */
 .commentBox {
+    display: flex;
+    gap: 20px;
     /* border: 1px solid #E5E7EB; */
-    padding: 7px;
-    margin: 30px 0 10px;
 }
 
 .commentBox textarea {
@@ -143,6 +177,12 @@
     height: 80px;
     resize: none;
     outline: none;
+}
+
+
+.btngrp {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* 추가된 스타일 */
