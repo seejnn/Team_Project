@@ -9,7 +9,8 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
     />
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/css/signIn.css" />
     <script src="javascript/signIn.js"></script>
 
     <script type="module" src="/components/navbar.js"></script>
@@ -19,51 +20,52 @@
     <nav-bar></nav-bar>
 
     <div class="mycontainer">
-      <h1 class="pageTitle center">회원가입</h1>
-      <text-field
-        data-label="이메일"
-        data-placeholder="id@email.com"
-        data-btn="email"
-        type="email"
-        name="email"
-        id="email"
-      ></text-field>
-      <text-field
-        data-label="닉네임"
-        data-placeholder="닉네임"
-        data-btn="text"
-        type="text"
-        name="nickname"
-        id="nickname"
-      ></text-field>
-      <text-field
-        data-label="전화번호"
-        data-placeholder="01000000000"
-        data-btn="text"
-        data-inputmd="numeric"
-        data-pttrn="[0-9]+"
-        type="text"
-        name="phNum"
-        id="phNum"
-      ></text-field>
-      <text-field
-        type="password"
-        data-btn="password"
-        name="pw"
-        id="pw"
-        data-label="비밀번호"
-        data-placeholder="비밀번호를 입력하세요"
-      ></text-field>
-      <text-field
-        type="password"
-        data-btn="password"
-        name="pwcheck"
-        id="pwcheck"
-        data-label="비밀번호 확인"
-        data-placeholder="비밀번호를 한 번 더 입력하세요"
-      ></text-field>
-
-      <custom-button data-type="primary" data-label="회원가입" onclick="signIn()" id="loginButton"></custom-button>
+      <form action="submit">
+        <h1 class="pageTitle center">회원가입</h1>
+        <text-field
+          data-label="이메일"
+          data-placeholder="id@email.com"
+          data-btn="email"
+          type="email"
+          name="email"
+          id="email"
+        ></text-field>
+        <text-field
+          data-label="닉네임"
+          data-placeholder="닉네임"
+          data-btn="text"
+          type="text"
+          name="nickname"
+          id="nickname"
+        ></text-field>
+        <text-field
+          data-label="전화번호"
+          data-placeholder="01000000000"
+          data-btn="text"
+          data-inputmd="numeric"
+          data-pttrn="[0-9]+"
+          type="text"
+          name="phNum"
+          id="phNum"
+        ></text-field>
+        <text-field
+          type="password"
+          data-btn="password"
+          name="pw"
+          id="pw"
+          data-label="비밀번호"
+          data-placeholder="비밀번호를 입력하세요"
+        ></text-field>
+        <text-field
+          type="password"
+          data-btn="password"
+          name="pwcheck"
+          id="pwcheck"
+          data-label="비밀번호 확인"
+          data-placeholder="비밀번호를 한 번 더 입력하세요"
+        ></text-field>
+        <custom-button data-type="primary" data-label="회원가입" onclick="signIn()" id="loginButton"></custom-button>
+      </form>
 
 
 

@@ -3,6 +3,15 @@
     padding: 0;
 }
 
+body {
+    height: 100%;
+}
+
+.mycontainer {
+    height: 100%;
+    min-height: 900px;
+}
+
 a, h3 {
     text-decoration: none;
 }
