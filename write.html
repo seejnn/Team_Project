@@ -25,21 +25,22 @@
 
 <body>
   <nav-bar></nav-bar>
-  <div class="container">
+  <div class="mycontainer">
     <h1 class="pageTitle center" style="text-align: left; margin-bottom: 30px;">글쓰기</h1>
     <div class="writeWrap">
       <div class="write_head">
         <div class="top">
-          <input type="text" placeholder="닉네임"></input>
-          <input type="password" placeholder="비밀번호"></input>
+          <text-field id="inputName" class="inputName" data-label="닉네임" data-placeholder="" data-btn="text"></text-field>
+          <text-field id="inputPassword" data-label="비밀번호" data-placeholder="" data-btn="password"></text-field>
         </div>
         <div class="bottom">
           <select id="option1-1" class="option-select">
             <option value="sub-option1-1-1">카테고리</option>
             <option value="sub-option1-1-2">News</option>
             <option value="sub-option1-1-3">톡talk</option>
-          <input type="text" placeholder="제목을 입력하세요"></input>
-          </select>
+          <!-- <input type="text" placeholder="제목을 입력하세요"></input> -->
+        </select>
+        <text-field id="inputTitle" data-label="제목" data-placeholder="제목을 입력하세요" data-btn="text"></text-field>
         </div>
       </div>
       <!-- 에디터 툴바 -->
@@ -62,7 +63,8 @@
             </button>
         </div>
         <div class="editor-content">
-            <textarea rows="20" placeholder="내용을 입력하세요"></textarea>
+          <text-area id="inputContent" data-placeholder="내용을 입력하세요"></text-area>  
+          <!-- <textarea rows="20" placeholder="내용을 입력하세요"></textarea> -->
         </div>
     </div>
     <custom-button data-type="primary" data-label="등록하기" onclick="writePost()"></custom-button>
@@ -90,13 +92,20 @@
       });
     });
 
-    
+  
+
+
+
+    console.log(String(document.querySelector('#inputName').value));
+
+
+
   function writePost() {
-    let nickname = document.querySelector('.write_head .top input[type="text"]').value;
-    let password = document.querySelector('.write_head .top input[type="password"]').value;
+    let nickname = String(document.querySelector('#inputName').value);
+    let password = String(document.querySelector('#inputPassword').value);
     let category = document.getElementById('option1-1').value;
-    let title = document.querySelector('.write_head .bottom input[type="text"]').value;
-    let content = document.querySelector('.editor-content textarea').value;
+    let title = String(document.querySelector('#inputTitle').value);
+    let content = String(document.querySelector('#inputContent').value);
 
     // 입력 확인
     if (!nickname.trim() || !password.trim() || category === 'sub-option1-1-1' || !title.trim() || !content.trim()) {
@@ -109,3 +118,7 @@
 </body>
 
 </html>
+
+
+
+

@@ -20,12 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
       left: 0;
       right: 0;
       justify-content: space-between;
-      padding: 8px 12px;
+      padding: 8px 32px;
       align-items: center;
       border-bottom: 1px solid var(--color-gray-200);
       background-color: white;
       z-index: 98;
+      font-weight: 700;
+    }
 
+    @media (max-width: 800px) {
+      header {
+        padding: 8px 12px;
+      }
     }
 
     .logo img {
@@ -44,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       width: fit-content;
       transition: all 0.5s;
       height: fit-content;
+      font-weight: 700;
     }
 
     .btn-group {
@@ -58,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       border: none;
       border-radius: 50px;
       color: white;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .menu img {
@@ -118,11 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     .top-menu {
+      position: absolute;
       display: flex;
       align-items: center;
       gap: 16px;
       text-decoration: none;
-      transform: translateX(20px);
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .top-menu a {
@@ -235,12 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let isLoggedIn = false;
 
 
-      if (isLoggedIn == true) {
-        loginInfo.innerHTML = `
-      <p>${JSON.parse(sessionStorage.getItem("isLoginUser")).userName}님</p>
-      <custom-button class='logoutButton' data-type='primary' data-label='로그아웃' onclick="logout()"></custom-button>
-      `
-      }
       
 
       // const login = sessionStorage.getItem("isLoginUser");
@@ -291,6 +294,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    if (isLoggedIn) {
+      loginInfo.innerHTML = `
+    <p>${JSON.parse(sessionStorage.getItem("isLoginUser")).userName}님</p>
+    <custom-button class='logoutButton' data-type='secondary' data-label='로그아웃' onclick="logout()"></custom-button>
+    `
+  }
 
     
 
@@ -327,8 +336,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const menuItems = [
         { text: "견종 카테고리", link: "/dogtype.html" },
         { text: "가족 찾기", link: "/findAnimal.html" },
-        { text: "꿀팁", link: "/tip.html" },
-        { text: "자유 커뮤니티", link: "/community.html" },
+        { text: "팁 & 정보", link: "/tip.html" },
+        { text: "커뮤니티", link: "/community.html" },
       ];
 
       const sidebarLogo = document.createElement("div");
@@ -371,8 +380,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const sidebarBtn = document.createElement("div");
       sidebarBtn.classList.add("sidebar-btn");
       sidebarBtn.innerHTML = `
-      <custom-button id='sideLoginButton' data-type='primary' data-label='로그인'></custom-button>
-      <custom-button id='sideSignupButton' data-type='primary' data-label='회원가입'></custom-button>
+      <div className="sidebtngroup" style="display: flex; flex-direction: column; gap: -10px; padding: 16px">
+        <custom-button id='sideLoginButton' data-type='primary' data-label='로그인' style="margin: 0; padding: 0;"></custom-button>
+        <custom-button id='sideSignupButton' data-type='primary' data-label='회원가입' style="margin: 0; padding: 0;"></custom-button>
+      </div>
     `;
       sidebar.appendChild(sidebarBtn);
 
@@ -387,16 +398,6 @@ document.addEventListener("DOMContentLoaded", () => {
       sidebar.appendChild(sidebarLogout);
 
 
-      if (isLoggedIn) {
-        sidebarBtn.style.display = "none";
-        sideLoginButton.style.display = "none"
-        sideSignupButton.style.display = "none"
-        sidebarLogout.style.display = "block"
-      
-      } else {
-        btnGroup.style.display = "flex";
-        sidebarLogout.style.display = "none"
-      }
 
       const loginButton = this.shadowRoot.querySelector(".loginButton");
       loginButton.addEventListener("click", () => {
@@ -419,18 +420,55 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "/signIn.html";
       });
 
+
+
       if (isLoggedIn) {
+        sidebarBtn.style.display = "none";
+        sideLoginButton.style.display = "none"
+        sideSignupButton.style.display = "none"
+        sidebarLogout.style.display = "block"
+      
+      } else {
+        btnGroup.style.display = "flex";
+        sidebarLogout.style.display = "none"
+      }
+
 
         const logoutButton = this.shadowRoot.querySelector(".logoutButton");
+
+        if (isLoggedIn){
         logoutButton.addEventListener("click", () => {
-          logout();
+          // logout();
+
         
           window.location.href = "/index.html";
-          window.location.reload();h
+          window.location.reload();
+          isLoggedIn = false;
+          console.log(isLoggedIn);
           sessionStorage.removeItem("isLoginUser");
         
-      })
-      }
+          })
+        }
+
+        const sideLogoutButton = this.shadowRoot.querySelector(".sidebar-logout");
+
+        if (isLoggedIn){
+          sideLogoutButton.addEventListener("click", () => {
+            // logout();
+  
+          
+            window.location.href = "/index.html";
+            window.location.reload();
+            isLoggedIn = false;
+            console.log(isLoggedIn);
+            sessionStorage.removeItem("isLoginUser");
+          
+            })
+          }
+
+
+
+      
     }
   }
 
