@@ -17,7 +17,7 @@
     background-color: white;
     z-index: 5;
     overflow-x: scroll;
-    min-width: 500px;
+    min-width: 200px;
     
   }
   
@@ -219,3 +219,13 @@
         width: 150px;
     }
 }
+
+
+
+@media screen and (max-width: 800px) {
+    .contentHeader {
+      padding-top: 0;
+      top: 49px;
+    }
+  }
+  
